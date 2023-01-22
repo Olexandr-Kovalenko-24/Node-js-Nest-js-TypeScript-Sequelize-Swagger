@@ -1,5 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Column, Model, Table, DataType } from "sequelize-typescript";
+import { Column, Model, Table, DataType, BelongsToMany } from "sequelize-typescript";
+import { SuperheroesToSuperpowers } from "src/superheroesToSuperpowers/superheroesToSuperpowers.model";
+import { Superpower } from "src/superpowers/superpowers.model";
 
 interface SuperheroCreationAttributs {
     nickName: string
@@ -27,4 +29,7 @@ export class Superhero extends Model<Superhero> {
     @ApiProperty({example: 'Scientist Bruce Banner was caught in a gamma bomb explosion that turned him into the Hulk.', description: 'How superhero appeared'})
     @Column({type: DataType.TEXT})
     originDescription: string;
+
+    @BelongsToMany(() => Superpower, () => SuperheroesToSuperpowers)
+    superpowers: Superpower[];
 }

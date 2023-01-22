@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateHeroDto } from './dto/createHero.dto';
-import { Superhero } from './superheroes.modele';
+import { Superhero } from './superheroes.model';
 
 @Injectable()
 export class SuperheroesService {

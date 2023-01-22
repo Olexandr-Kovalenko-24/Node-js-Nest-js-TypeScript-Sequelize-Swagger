@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { SuperheroesController } from './superheroes.controller';
-import { Superhero } from './superheroes.modele';
+import { Superhero } from './superheroes.model';
 import { SuperheroesService } from './superheroes.service';
 
 @Module({

@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { SequelizeModule } from "@nestjs/sequelize";
-import { Superhero } from "./superheroes/superheroes.modele";
+import { Superhero } from "./superheroes/superheroes.model";
 import { SuperheroesModule } from './superheroes/superheroes.module';
 
 @Module({

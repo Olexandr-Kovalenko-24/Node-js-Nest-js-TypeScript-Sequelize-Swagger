@@ -6,6 +6,8 @@ import { SuperheroesModule } from './superheroes/superheroes.module';
 import { SuperheroesToSuperpowers } from "./superheroesToSuperpowers/superheroesToSuperpowers.model";
 import { Superpower } from "./superpowers/superpowers.model";
 import { SuperpowersModule } from './superpowers/superpowers.module';
+import { HeroimageModule } from './heroimage/heroimage.module';
+import { HeroImage } from "./heroimage/heroimage.model";
 
 @Module({
     controllers: [],
@@ -21,11 +23,12 @@ import { SuperpowersModule } from './superpowers/superpowers.module';
             username: process.env.POSTGRES_USER,
             password: `${process.env.POSTGRES_PASSWORD}`,
             database: process.env.POSTGRES_DB,
-            models: [Superhero, Superpower, SuperheroesToSuperpowers],
+            models: [Superhero, Superpower, SuperheroesToSuperpowers, HeroImage],
             autoLoadModels: true
           }),
         SuperheroesModule,
         SuperpowersModule,
+        HeroimageModule,
     ]
 })
 export class AppModule {}

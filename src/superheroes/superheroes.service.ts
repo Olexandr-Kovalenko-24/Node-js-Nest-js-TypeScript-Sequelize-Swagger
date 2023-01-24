@@ -13,8 +13,13 @@ export class SuperheroesService {
         return hero;
     }
 
-    async getAlHeroes () {
-        const heroes = await this.heroRepository.findAll();
+    async getAllHeroes () {
+        const heroes = await this.heroRepository.findAll({include: {all: true}});
         return heroes;
     }
+
+    // async deleteHero () {
+    //     const heroes = await this.heroRepository.findAll();
+    //     return heroes;
+    // }
 }

@@ -23,6 +23,6 @@ export class SuperheroesController {
     @ApiResponse({status: 200, type: [Superhero]})
     @Get()
     getAll(){
-        return this.heroesService.getAlHeroes();
+        return this.heroesService.getAllHeroes();
     }
 }

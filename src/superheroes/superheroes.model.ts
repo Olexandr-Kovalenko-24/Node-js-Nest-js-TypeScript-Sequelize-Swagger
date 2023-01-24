@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Column, Model, Table, DataType, BelongsToMany } from "sequelize-typescript";
+import { Column, Model, Table, DataType, BelongsToMany, HasMany } from "sequelize-typescript";
+import { HeroImage } from "src/heroimage/heroimage.model";
 import { SuperheroesToSuperpowers } from "src/superheroesToSuperpowers/superheroesToSuperpowers.model";
 import { Superpower } from "src/superpowers/superpowers.model";
 
@@ -32,4 +33,7 @@ export class Superhero extends Model<Superhero> {
 
     @BelongsToMany(() => Superpower, () => SuperheroesToSuperpowers)
     superpowers: Superpower[];
+
+    @HasMany(() => HeroImage)
+    images: HeroImage[];
 }

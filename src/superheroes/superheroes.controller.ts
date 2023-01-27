@@ -1,6 +1,7 @@
-import { Controller, Post, Body, Get } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Delete, Put } from '@nestjs/common';
 import { ApiResponse, ApiTags, ApiOperation } from '@nestjs/swagger';
 import { CreateHeroDto } from './dto/createHero.dto';
+import { UpdateHeroDto } from './dto/updateHero.dto';
 import { Superhero } from './superheroes.model';
 import { SuperheroesService } from './superheroes.service';
 
@@ -24,5 +25,26 @@ export class SuperheroesController {
     @Get()
     getAll(){
         return this.heroesService.getAllHeroes();
+    }
+
+    @ApiOperation({summary: 'Update superheroe'})
+    @ApiResponse({status: 200, type: Superhero})
+    @Put(':id')
+    updateOne(@Param('id') id: string, @Body() heroDto: UpdateHeroDto){
+        return this.heroesService.updateHero(heroDto, id);
+    }
+
+    @ApiOperation({summary: 'Recieve one superheroe'})
+    @ApiResponse({status: 200, type: Superhero})
+    @Get(':id')
+    getOne(@Param('id') id: string){
+        return this.heroesService.getOneHero(id);
+    }
+
+    @ApiOperation({summary: 'Delete superheroe'})
+    @ApiResponse({status: 204, type: String})
+    @Delete(':id')
+    deleteOne(@Param('id') id: string){
+        return this.heroesService.deleteHero(id);
     }
 }

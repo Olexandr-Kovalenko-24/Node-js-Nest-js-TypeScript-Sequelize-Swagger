@@ -10,6 +10,9 @@ import { Superhero } from 'src/superheroes/superheroes.model';
   controllers: [SuperpowersController],
   imports: [
     SequelizeModule.forFeature([Superpower, Superhero])
+  ],
+  exports: [
+    SuperpowersService
   ]
 })
 export class SuperpowersModule {}

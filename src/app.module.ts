@@ -8,6 +8,7 @@ import { Superpower } from "./superpowers/superpowers.model";
 import { SuperpowersModule } from './superpowers/superpowers.module';
 import { HeroimageModule } from './heroimage/heroimage.module';
 import { HeroImage } from "./heroimage/heroimage.model";
+import { FilesModule } from './files/files.module';
 
 @Module({
     controllers: [],
@@ -29,6 +30,7 @@ import { HeroImage } from "./heroimage/heroimage.model";
         SuperheroesModule,
         SuperpowersModule,
         HeroimageModule,
+        FilesModule,
     ]
 })
 export class AppModule {}

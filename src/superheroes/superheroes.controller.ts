@@ -1,5 +1,6 @@
 import { Controller, Post, Body, Get, Param, Delete, Put } from '@nestjs/common';
 import { ApiResponse, ApiTags, ApiOperation } from '@nestjs/swagger';
+import { CreatePowerDto } from 'src/superpowers/dto/createPower.dto';
 import { CreateHeroDto } from './dto/createHero.dto';
 import { UpdateHeroDto } from './dto/updateHero.dto';
 import { Superhero } from './superheroes.model';
@@ -19,6 +20,13 @@ export class SuperheroesController {
     create(@Body() heroDto: CreateHeroDto) {
         return this.heroesService.createHero(heroDto);
     }
+
+    // @ApiOperation({summary: 'Creating superhero'})
+    // @ApiResponse({status: 201, type: Superhero})
+    // @Post()
+    // create(@Body() heroDto: CreateHeroDto, @Body() powerDto: CreatePowerDto) {
+    //     return this.heroesService.createHero(heroDto, powerDto);
+    // }
 
     @ApiOperation({summary: 'Recieve all superheroes'})
     @ApiResponse({status: 200, type: [Superhero]})

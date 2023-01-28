@@ -3,7 +3,8 @@ import { Column, Model, Table, DataType, BelongsToMany, BelongsTo, ForeignKey } 
 import { Superhero } from "src/superheroes/superheroes.model";
 
 interface HeroImageCreationAttributs {
-    imagePath: string
+    imagePath: string,
+    heroId: number
 }
 
 

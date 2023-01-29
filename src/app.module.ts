@@ -9,6 +9,8 @@ import { SuperpowersModule } from './superpowers/superpowers.module';
 import { HeroimageModule } from './heroimage/heroimage.module';
 import { HeroImage } from "./heroimage/heroimage.model";
 import { FilesModule } from './files/files.module';
+import { ServeStaticModule } from "@nestjs/serve-static";
+import * as path from "path";
 
 @Module({
     controllers: [],
@@ -17,6 +19,9 @@ import { FilesModule } from './files/files.module';
         ConfigModule.forRoot({
             envFilePath: '.env'
         }),
+        ServeStaticModule.forRoot({
+            rootPath: path.resolve(__dirname, 'static'),
+          }),
         SequelizeModule.forRoot({
             dialect: 'postgres',
             host: process.env.POSTGRES_HOST,

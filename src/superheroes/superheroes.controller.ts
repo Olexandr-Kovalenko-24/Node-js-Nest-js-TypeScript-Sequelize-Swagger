@@ -21,12 +21,12 @@ export class SuperheroesController {
         return this.heroesService.createHero(heroDto);
     }
 
-    // @ApiOperation({summary: 'Creating superhero'})
-    // @ApiResponse({status: 201, type: Superhero})
-    // @Post()
-    // create(@Body() heroDto: CreateHeroDto, @Body() powerDto: CreatePowerDto) {
-    //     return this.heroesService.createHero(heroDto, powerDto);
-    // }
+    @ApiOperation({summary: 'Creating superhero with power'})
+    @ApiResponse({status: 201, type: Superhero})
+    @Post('/withpower')
+    createHeroWithPower(@Body() heroDto: CreateHeroDto, @Body() powerDto: CreatePowerDto) {
+        return this.heroesService.createHeroWithPower(heroDto, powerDto);
+    }
 
     @ApiOperation({summary: 'Recieve all superheroes'})
     @ApiResponse({status: 200, type: [Superhero]})

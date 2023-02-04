@@ -17,12 +17,12 @@ export class SuperheroesService {
         return hero;
     }
 
-    // async createHero (dto: CreateHeroDto, powerDto: CreatePowerDto) {
-    //     const hero = await this.heroRepository.create(dto);
-    //     const power = await this.powerService.createPower(powerDto);
-    //     await hero.$set('superpowers', [power.id]);
-    //     return hero;
-    // }
+    async createHeroWithPower (dto: CreateHeroDto, powerDto: CreatePowerDto) {
+        const hero = await this.heroRepository.create(dto);
+        const power = await this.powerService.createPower(powerDto);
+        await hero.$set('superpowers', [power.id]);
+        return hero;
+    }
 
     async getAllHeroes () {
         const heroes = await this.heroRepository.findAll({include: {all: true}});
